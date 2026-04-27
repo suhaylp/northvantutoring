@@ -3,8 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NorthVan Tutoring — Suhayl Patel</title>
+<title>NorthVan Tutoring — Personalized K–12 Tutoring on the North Shore</title>
+<meta name="description" content="Personalized 1-on-1 K–12 tutoring in Math, Science, and Coding. Suhayl Patel — 2,500+ hours of experience, in-person on the North Shore or online.">
+<meta name="author" content="Suhayl Patel">
+<link rel="canonical" href="https://northvantutoring.ca/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://northvantutoring.ca/">
+<meta property="og:title" content="NorthVan Tutoring — Personalized K–12 Tutoring">
+<meta property="og:description" content="1-on-1 Math, Science & Coding tutoring with Suhayl Patel. North Shore, in-person or online.">
+<meta property="og:image" content="https://northvantutoring.ca/og-image.jpg">
+<meta property="og:locale" content="en_CA">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NorthVan Tutoring — Personalized K–12 Tutoring">
+<meta name="twitter:description" content="1-on-1 Math, Science & Coding tutoring with Suhayl Patel. North Shore, in-person or online.">
+
+<meta name="theme-color" content="#1a7340">
+
+<!-- Favicon (inline SVG) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 38'%3E%3Crect width='38' height='38' rx='10' fill='%231a7340'/%3E%3Crect x='9' y='13' width='9' height='13' rx='1.5' fill='white' opacity='0.9'/%3E%3Crect x='20' y='13' width='9' height='13' rx='1.5' fill='white' opacity='0.6'/%3E%3C/svg%3E">
+
+<!-- Structured data: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://northvantutoring.ca/#business",
+  "name": "NorthVan Tutoring",
+  "description": "Personalized 1-on-1 K–12 tutoring in Math, Science, and Coding by Suhayl Patel.",
+  "url": "https://northvantutoring.ca/",
+  "image": "https://northvantutoring.ca/og-image.jpg",
+  "founder": { "@type": "Person", "name": "Suhayl Patel" },
+  "areaServed": { "@type": "Place", "name": "North Shore, British Columbia" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "North Vancouver",
+    "addressRegion": "BC",
+    "addressCountry": "CA"
+  },
+  "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "3"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ── Reset & tokens ── */
@@ -32,6 +82,17 @@
 }
 
 html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 8px;
+  background: var(--green); color: #fff;
+  padding: 8px 16px; border-radius: 6px;
+  font-weight: 700; z-index: 200;
+}
+.skip-link:focus { left: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
 body {
   font-family: var(--font);
   background: var(--white);
@@ -699,8 +760,10 @@ footer {
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to main content</a>
+
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" aria-label="Main">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <svg class="nav-logo-mark" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -735,8 +798,10 @@ footer {
   </div>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" aria-label="Introduction">
   <div class="hero-img-wrap">
     <img
       src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80&fit=crop&crop=top"
@@ -984,6 +1049,8 @@ footer {
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>

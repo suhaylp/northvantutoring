@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://northvantutoring.ca/sitemap.xml
