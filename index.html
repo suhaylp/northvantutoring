@@ -1006,14 +1006,14 @@ footer {
         </div>
       </div>
       <div class="contact-form">
-        <form onsubmit="handleSubmit(event)">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
-            <label>Your name</label>
-            <input type="text" placeholder="e.g. Sarah Johnson" required>
+            <label for="cf-name">Your name</label>
+            <input id="cf-name" name="name" type="text" placeholder="e.g. Sarah Johnson" required>
           </div>
           <div class="form-row">
-            <label>Child's grade</label>
-            <select required>
+            <label for="cf-grade">Child's grade</label>
+            <select id="cf-grade" name="grade" required>
               <option value="">Select grade…</option>
               <option>Kindergarten</option>
               <option>Grade 1</option><option>Grade 2</option><option>Grade 3</option>
@@ -1023,22 +1023,23 @@ footer {
             </select>
           </div>
           <div class="form-row">
-            <label>Subject(s) needed</label>
-            <input type="text" placeholder="e.g. Math, Science, Coding">
+            <label for="cf-subjects">Subject(s) needed</label>
+            <input id="cf-subjects" name="subjects" type="text" placeholder="e.g. Math, Science, Coding">
           </div>
           <div class="form-row">
-            <label>Email address</label>
-            <input type="email" placeholder="you@email.com" required>
+            <label for="cf-email">Email address</label>
+            <input id="cf-email" name="email" type="email" placeholder="you@email.com" required>
           </div>
           <div class="form-row">
-            <label>Phone (optional)</label>
-            <input type="tel" placeholder="604-xxx-xxxx">
+            <label for="cf-phone">Phone (optional)</label>
+            <input id="cf-phone" name="phone" type="tel" placeholder="604-xxx-xxxx">
           </div>
           <div class="form-row">
-            <label>Anything else?</label>
-            <textarea placeholder="Tell me a bit about what your child is finding difficult, or any questions you have…"></textarea>
+            <label for="cf-message">Anything else?</label>
+            <textarea id="cf-message" name="message" placeholder="Tell me a bit about what your child is finding difficult, or any questions you have…"></textarea>
           </div>
           <button type="submit" class="form-submit">Send Request →</button>
+          <p style="font-size:12px; color:var(--muted); text-align:center; margin-top:10px;">Opens your email app to send to suhayl.patel@outlook.com</p>
         </form>
         <div id="formSuccess" style="display:none; text-align:center; padding:32px 0; color:var(--green);">
           <div style="font-size:36px; margin-bottom:12px;">✓</div>
@@ -1075,7 +1076,24 @@ function toggleMenu() {
 
 function handleSubmit(e) {
   e.preventDefault();
-  e.target.style.display = 'none';
+  const f = e.target;
+  const get = (n) => (f.elements[n]?.value || '').trim();
+  const name = get('name');
+  const grade = get('grade');
+  const subjects = get('subjects');
+  const email = get('email');
+  const phone = get('phone');
+  const message = get('message');
+  const subject = `Tutoring inquiry — ${name}${grade ? ' (' + grade + ')' : ''}`;
+  const body =
+    `Name: ${name}\n` +
+    `Grade: ${grade}\n` +
+    `Subjects: ${subjects}\n` +
+    `Email: ${email}\n` +
+    `Phone: ${phone}\n\n` +
+    `Message:\n${message}\n`;
+  window.location.href = `mailto:suhayl.patel@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  f.style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
 
